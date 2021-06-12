@@ -12,7 +12,7 @@ export class AppComponent implements OnInit{
   title = 'testTask';
 
   selectedFile: any
-  
+
   photoList: Photo[] = []
   src: string | undefined;
   name: string | undefined;
@@ -25,13 +25,15 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
+
+
     this.photoList = this.photosService.getPhotoList()
-    console.log(this.photoList)
+    
   }
 
   deletePhoto(id: number){
       this.photosService.delete(id)
-    
+      
   }
 
   onFileSelected(event: any){
@@ -47,7 +49,9 @@ export class AppComponent implements OnInit{
         id: this.photosService.getId()
       })
     }
+    
   }
+  
   
 }
 

@@ -31,12 +31,18 @@ export class PhotosService {
 
 getPhotoList(){  
   
+  this.photoList = JSON.parse(localStorage.getItem("photoList") || '[]')
+
   return this.photoList 
+  
 }
 
 
 add(photo: any){
-  this.photoList.push(photo) 
+
+  this.photoList.push(photo)
+  localStorage.setItem('photoList', JSON.stringify(this.photoList))
+  
 }
 
 delete(id: number){
@@ -45,8 +51,10 @@ delete(id: number){
 
   setTimeout(() =>{
     this.photoList.splice(index, 1)
+    localStorage.setItem('photoList', JSON.stringify(this.photoList))
   },700)
-
+  
  
 }
+
 }

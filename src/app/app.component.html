@@ -1,19 +1,24 @@
 <div class="container">
-  <div id="input">
+  <div style="display: flex; padding-top: 10px; justify-content: center;" id="input">
     <input type="file" (change)="onFileSelected($event)">
+    
   </div>
   
-
-  <div class="main">
+  <div class="row" style="justify-content: space-around;">
+    <div  style="flex-shrink: 0;" *ngFor="let photo of photoList">
+      <div class="main">
   
-    <div class="card" *ngFor="let photo of photoList" style="width: 18rem;">
-      <img src="{{photo.src}}" class="card-img-top" alt="">
-      <div class="card-body">
-        <h5 style.textDecoration="{{photo.textDecor}}" class="card-title">{{photo.name}}</h5>
-        <button  class="btn btn-primary" (click)="deletePhoto(photo.id)">Delete</button>
+        <div class="card"  style="width: 18rem;">
+          <img src="{{photo.src}}" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 style.textDecoration="{{photo.textDecor}}" class="card-title">{{photo.name}}</h5>
+            <button  class="btn btn-primary" (click)="deletePhoto(photo.id)">Delete</button>
+          </div>
+        </div>
+      
       </div>
     </div>
-  
   </div>
+  
 </div>
 
